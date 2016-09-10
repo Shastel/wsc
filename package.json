@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "pm2 start process.dev.json",
+    "stop": "pm2 stop process.dev.json",
+    "stop:prod": "pm2 stop process.json",
     "build": "webpack --config webpack.config.js"
   },
   "repository": {
