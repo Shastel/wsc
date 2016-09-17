@@ -17,7 +17,6 @@ server.on('error', function __onServerError(err){
     cli.log('**************PANIC**************');
     cli.log(err);
     cli.log('*********************************');
-    //eslint-enable
 });
 
 server.on('listening', function __onListening(){
