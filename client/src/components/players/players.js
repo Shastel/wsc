@@ -19,22 +19,31 @@ export default class Players extends PureComponent {
                 <Subheader className="players-header" style={headerStyle}>
                     <span>Players</span>
                 </Subheader>
-                <ListItem
-                    primaryText="Chelsea Otakan"
-                    leftIcon={<Progress length={4} completed={3}/>}
-                />
-                <ListItem
-                    leftIcon={<Progress length={4} completed={1}/>}
-                    primaryText="Eric Hoffman"
-                />
-                <ListItem
-                    leftIcon={<Progress length={4} completed={2}/>}
-                    primaryText="James Anderson"
-                />
-                <ListItem
-                    leftIcon={<Progress length={4} completed={0}/>}
-                    primaryText="Kerem Suer"
-                />
+                <div className="player">
+                    <span>Chelsea Otakan</span>
+                    <Progress length={4} completed={3}/>
+                </div>
+                <div className="player">
+                    <span>Eric Hoffman</span>
+                    <Progress length={4} completed={2}/>
+                </div>
+                <div className="player">
+                    <span>Chelsea Otakan</span>
+                    <Progress length={4} completed={0}/>
+                </div>
+                <div className="player">
+                    <span>James Anderson</span>
+                    <Progress length={4} completed={1}/>
+                </div>
+                <div className="player">
+                    <span>James Anderson</span>
+                    <Progress length={4} completed={2}/>
+                </div>
+                <div className="player">
+                    <span>Kerem Suer</span>
+                    <Progress length={4} completed={2}/>
+                </div>
+
             </List>
         );
     }
