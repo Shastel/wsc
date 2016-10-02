@@ -6,44 +6,31 @@ import React from 'react';
 import { PureComponent } from 'react';
 import { List, ListItem } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
-import Progress from '../progress/progress';
+import Player from './player';
+
+//stub
+import players from './stub';
 
 export default class Players extends PureComponent {
 
     render() {
         const headerStyle = {
-            fontSize: 25
+            fontSize: 25,
+            color: 'white'
         };
         return (
             <List className="players-list">
                 <Subheader className="players-header" style={headerStyle}>
                     <span>Players</span>
                 </Subheader>
-                <div className="player">
-                    <span>Chelsea Otakan</span>
-                    <Progress length={4} completed={3}/>
-                </div>
-                <div className="player">
-                    <span>Eric Hoffman</span>
-                    <Progress length={4} completed={2}/>
-                </div>
-                <div className="player">
-                    <span>Chelsea Otakan</span>
-                    <Progress length={4} completed={0}/>
-                </div>
-                <div className="player">
-                    <span>James Anderson</span>
-                    <Progress length={4} completed={1}/>
-                </div>
-                <div className="player">
-                    <span>James Anderson</span>
-                    <Progress length={4} completed={2}/>
-                </div>
-                <div className="player">
-                    <span>Kerem Suer</span>
-                    <Progress length={4} completed={2}/>
-                </div>
-
+                {
+                    players.map((player) => {
+                       return <Player name={player}
+                                      completed={Math.floor(Math.random() * 4)}
+                                      key={player}
+                              />
+                    })
+                }
             </List>
         );
     }
