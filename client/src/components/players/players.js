@@ -26,7 +26,7 @@ export default class Players extends PureComponent {
                 {
                     players.map((player) => {
                        return <Player name={player}
-                                      completed={Math.floor(Math.random() * 4)}
+                                      completed={Math.floor(Math.random() * 5)}
                                       key={player}
                               />
                     })
