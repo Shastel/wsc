@@ -14,7 +14,7 @@ export default class Player extends PureComponent {
 
     render() {
         const { name, withStar, index } = this.props;
-        const star = withStar ? <FontIcon className="material-icons" color={yellow500}>stars</FontIcon> : null;
+        const star = withStar ? <FontIcon className="material-icons" color={yellow500}>star_rate</FontIcon> : null;
         return (
             <ListItem
                 primaryText={`${index + 1}. ${name}`}
