@@ -3,7 +3,7 @@ const master = require('./master');
 
 const cli = require('./cli');
 
-const constants = require('./constants');
+const constants = require('./constants/messages');
 
 const isGameStarted = require('./game/stat').getGameStatus;
 

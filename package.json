@@ -26,6 +26,7 @@
   "homepage": "https://github.com/Shastel/wsc#readme",
   "dependencies": {
     "express": "^4.14.0",
+    "immutable": "^3.8.1",
     "material-ui": "^0.15.4",
     "morgan": "^1.7.0",
     "nconf": "^0.8.4",
@@ -35,6 +36,8 @@
     "react-dom": "^15.3.1",
     "react-tap-event-plugin": "^1.0.0",
     "redux": "^3.6.0",
+    "redux-immutable": "^3.0.8",
+    "redux-logger": "^2.7.0",
     "url-loader": "^0.5.7",
     "uws": "^0.8.0"
   },
