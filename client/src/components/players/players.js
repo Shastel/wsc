@@ -9,7 +9,7 @@ import Subheader from 'material-ui/Subheader';
 import Player from './player';
 
 //stub
-import players from './stub';
+import players from '../application/generatePlayers';
 
 export default class Players extends PureComponent {
 
