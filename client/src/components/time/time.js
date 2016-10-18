@@ -3,7 +3,7 @@ import './_time.styl';
 import React from 'react';
 
 //colors
-import { blue500, red500, green500} from 'material-ui/styles/colors';
+import { blue500, green500} from 'material-ui/styles/colors';
 
 //components
 import { PureComponent } from 'react';

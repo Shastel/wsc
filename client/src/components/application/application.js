@@ -26,6 +26,7 @@ export default class Application extends Component {
                         title="Websocket Challenge"
                         iconElementLeft={ <Logo /> }
                     />
+
                     <Racecourse
                         start={start}
                         end={end}
