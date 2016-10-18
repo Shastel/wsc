@@ -11,8 +11,24 @@ import Header from './header';
 
 export default class Racecourse extends PureComponent {
 
+    races(count, players) {
+        let races = [];
+        for (let i = 0; i < count; i ++) {
+            let racePlayers = players.filter((player) => {
+                return player.progress === i + 1;
+            });
+            let race = <Race key={i} index={i} players={racePlayers} />;
+
+            races.push(race);
+        }
+
+        return races;
+    }
+
     render() {
         const { players, start, end } = this.props;
+        let races = this.races(4, players);
+
         return (
             <div className="racecourse">
                 <div className="header-container">
@@ -23,18 +39,9 @@ export default class Racecourse extends PureComponent {
                     />
                 </div>
                 <div className="races-container">
-                    <Race
-                        type={'start'}
-                    />
-                    <Race
-                        type={'first'}
-                    />
-                    <Race
-                        type={'second'}
-                    />
-                    <Race
-                        type={'finish'}
-                    />
+                    {
+                        races
+                    }
                 </div>
             </div>
         );

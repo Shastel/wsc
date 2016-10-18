@@ -24,7 +24,7 @@ export default class Header extends PureComponent {
                 >
                     directions_walk
                 </FontIcon>
-                <span>Running Track</span>
+                <span>Break the distance!</span>
             </div>
         );
     }
