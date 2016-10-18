@@ -1,3 +1,4 @@
+import './_player.styl';
 import React from 'react';
 import { red500 } from 'material-ui/styles/colors';
 
@@ -9,22 +10,22 @@ import FontIcon from 'material-ui/FontIcon';
 export default class Header extends PureComponent {
 
     render() {
+        const { name } = this.props;
         const iconStyle = {
-            fontSize: 50,
-            top: 8,
-            right: 8
+            fontSize: 20,
+            position: 'absolute'
         };
 
         return (
-            <div className="header">
+            <div className="player">
                 <FontIcon
-                    className="material-icons"
+                    className="material-icons runner"
                     color={red500}
                     style={iconStyle}
                 >
-                    directions_walk
+                    directions_run
                 </FontIcon>
-                <span>Break the distance as soon as possible!</span>
+                <span>{name}</span>
             </div>
         );
     }

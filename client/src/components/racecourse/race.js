@@ -4,12 +4,19 @@ import {grey500} from 'material-ui/styles/colors';
 //components
 import {PureComponent} from 'react';
 import FontIcon from 'material-ui/FontIcon';
+import Player from '../player/player';
 
 export default class Race extends PureComponent {
-    createPlayersList(players) {
-
+    getIcon(index) {
+        switch (index) {
+            case 1:
+                return 'one';
+            case 2:
+                return 'two';
+            default:
+                return index;
+        }
     }
-
     render() {
         const {index, players} = this.props;
 
@@ -20,14 +27,14 @@ export default class Race extends PureComponent {
                         className="material-icons"
                         color={grey500}
                     >
-                        {`filter_${index + 1}`}
+                        {`looks_${this.getIcon(index + 1)}`}
                     </FontIcon>
                 </div>
 
                 <div className="race-players">
                     {
                         players.map((player) => {
-                            return <div>{player.name}</div>
+                            return <Player name={player.name} />
                         })
                     }
                 </div>
