@@ -6,9 +6,13 @@ const cli = require('./cli');
 const constants = require('./constants/messages');
 
 const isGameStarted = require('./game/stat').getGameStatus;
+const defaultVerifyClient = require('./utils/verify_client');
 
-function createGameServer(server) {
-    const wss = new WebSocketServer({ server });
+function createGameServer({server, verifyClient = defaultVerifyClient}) {
+    const wss = new WebSocketServer({
+        server,
+        verifyClient,
+    });
 
     wss.on('connection', function (socket) {
         if(master.isMaster(socket)) {

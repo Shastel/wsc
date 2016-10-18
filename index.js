@@ -9,7 +9,7 @@ const port = Number.isNaN(config.get('PORT')) ? config.get('PORT') : 3000;
 app.set('port', port);
 
 const server = http.createServer(app);
-createGameServer(server);
+createGameServer({server});
 
 server.listen(port);
 server.on('error', function __onServerError(err){
