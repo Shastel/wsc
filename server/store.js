@@ -1,16 +1,10 @@
-const redux = require('redux');
-const createStore = redux.createStore;
-const applyMiddleware = redux.applyMiddleware;
-const reducer = require('./reducers');
+import {createStore, applyMiddleware} from 'redux';
+import rootReducer from './reducers';
+import masterMiddleware from './utils/master_middleware';
 
-//const createLogger = require('redux-logger');
+const store = applyMiddleware(masterMiddleware)(createStore)(rootReducer);
 
-//const logger = createLogger();
-
-//const store = createStore(reducer, inntitialState, applyMiddleware(createLogger));
-
-const store = applyMiddleware()(createStore)(reducer);
-
-require('./observables/storeStream')(store);
+//TODO: Remove
+require('./observables/storeStream').default(store);
 
 module.exports = store;

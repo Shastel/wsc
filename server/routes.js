@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const path = require('path');
+import path from 'path';
 
 const pathToDist = path.resolve(process.env.NODE_PATH + 'client/dist/index.html');
 const pathToRules = pathToDist + 'rules.html';

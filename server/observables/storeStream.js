@@ -1,8 +1,8 @@
-const observableFromStore = require('redux-rx').observableFromStore;
+import { observableFromStore } from 'redux-rx';
 
 let stateStream = null;
 
-module.exports = function (store) {
+export default function (store) {
     if (!stateStream) {
         stateStream = observableFromStore(store);
         stateStream

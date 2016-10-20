@@ -1,6 +1,4 @@
-const reselect = require('reselect');
-
-const createSelector = reselect.createSelector;
+import { createSelector } from 'reselect';
 
 function system (state) {
     return state.get('system');
@@ -13,8 +11,16 @@ const startTime = createSelector(
   }
 );
 
+const isGameStarted = createSelector(
+  [system],
+  function (systemState) {
+      return systemState.get('isGameStarted');
+  }
+);
+
 const systemSelectors = {
     startTime,
+    isGameStarted,
 };
 
-module.exports = systemSelectors;
+export default systemSelectors;

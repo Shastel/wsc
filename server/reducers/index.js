@@ -1,10 +1,10 @@
-const combineReducers = require('redux-immutable').combineReducers;
+import { combineReducers } from 'redux-immutable';
 
 //importing of reducers
-const game_reducer = require('./game_reducer');
-const system_reducer = require('./system_reducer');
+import game_reducer from './game_reducer';
+import system_reducer from './system_reducer';
 
-module.exports = combineReducers({
+export default combineReducers({
     game: game_reducer,
     system: system_reducer,
 });

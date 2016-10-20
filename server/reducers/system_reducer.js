@@ -1,13 +1,13 @@
-const Immutable = require('Immutable');
+import Immutable from 'Immutable';
 
-const ActionTypes = require('../constants/action_types/syste_action_types.js');
+import ActionTypes from '../constants/action_types/syste_action_types.js';
 
 const inntitialState = Immutable.fromJS({
     startTime: null,
     isGameStarted: false,
 });
 
-module.exports = function gameReducer(state = inntitialState, action = {}) {
+export default function gameReducer(state = inntitialState, action = {}) {
     switch (action.type) {
     case ActionTypes.START_GAME:
         return state.merge(action.payload);

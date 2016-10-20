@@ -1,16 +1,22 @@
-const store = require('../store');
-const ActionTypes = require('../constants/action_types/syste_action_types.js');
+import store from '../store';
+import SystemSelectors from '../selectors/system_selectors';
+import ActionTypes from '../constants/action_types/syste_action_types.js';
 
 function startGame () {
-    store.dispatch({
-        type: ActionTypes.START_GAME,
-        payload: {
-            startTime: Date.now(),
-            isGameStarted: true,
-        }
-    });
+    const state = store.getState();
+    const isGameStarted = SystemSelectors.isGameStarted(state);
+
+    if(!isGameStarted){
+      store.dispatch({
+          type: ActionTypes.START_GAME,
+          payload: {
+              startTime: Date.now(),
+              isGameStarted: true,
+          }
+      });
+    }
 }
 
-module.exports = {
+export default {
     startGame,
 };

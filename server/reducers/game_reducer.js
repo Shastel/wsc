@@ -1,10 +1,10 @@
-const Immutable = require('Immutable');
+import Immutable from 'Immutable';
 
 const inntitialState = Immutable.fromJS({
     players: {},
 });
 
-module.exports = function gameReducer(state = inntitialState, action = {}) {
+export default function gameReducer(state = inntitialState, action = {}) {
     switch (action.type) {
 
     default:

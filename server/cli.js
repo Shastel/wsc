@@ -1,10 +1,6 @@
 const vorpal = require('vorpal')();
 
-//const gameStat = require('./game/stat');
-
-const store = require('./store');
-
-const SystemActions = require('./actions/system_actions');
+import SystemActions from './actions/system_actions';
 
 vorpal
   .command('start', 'Start game')
@@ -42,4 +38,4 @@ vorpal
   .delimiter('wsc$')
   .show();
 
-module.exports = vorpal;
+export default vorpal;

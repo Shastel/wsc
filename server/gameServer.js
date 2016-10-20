@@ -1,15 +1,17 @@
-const WebSocketServer = require('uws').Server;
-const master = require('./master');
+import { Server as WebSocketServer } from 'uws';
+import master from './master';
 
-const cli = require('./cli');
+import cli from './cli';
 
-const constants = require('./constants/messages');
+import constants from './constants/messages';
 
-const isGameStarted = require('./game/stat').getGameStatus;
-const defaultVerifyClient = require('./utils/verify_client');
+import { getGameStatus } from './game/stat';
+import defaultVerifyClient from './utils/verify_client';
 
-function createGameServer({server, verifyClient = defaultVerifyClient}) {
-    const wss = new WebSocketServer({
+let wss = null;
+
+export function createGameServer({server, verifyClient = defaultVerifyClient}) {
+    wss = new WebSocketServer({
         server,
         verifyClient,
     });
@@ -19,7 +21,7 @@ function createGameServer({server, verifyClient = defaultVerifyClient}) {
             cli.log('Master detected');
         } else {
             socket.on('message', function __onGameMessage(message) {
-                if(isGameStarted()) {
+                if(false) {
                     socket.send(message);
                 } else {
                     socket.send(JSON.stringify(constants.GAME_NOT_START_MSG));
@@ -36,4 +38,4 @@ function createGameServer({server, verifyClient = defaultVerifyClient}) {
     return wss;
 }
 
-module.exports = createGameServer;
+export wss;

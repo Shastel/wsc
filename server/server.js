@@ -1,9 +1,9 @@
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import path from 'path';
 
-const routes = require('./routes');
+import routes from './routes';
 
-const setErrorHandlers = require('./utils/server_error_handling');
+import setErrorHandlers from './utils/server_error_handling';
 
 const app = express();
 

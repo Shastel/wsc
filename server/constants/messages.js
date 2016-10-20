@@ -1,5 +1,5 @@
 const GAME_NOT_START_MSG = 'Game did\'t start yet. Wait...';
 
-module.exports = {
+export default {
     GAME_NOT_START_MSG
-};
+}
