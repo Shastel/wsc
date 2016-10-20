@@ -4,6 +4,6 @@ export default {
     },
 
     notifyMasters(action) {
-
+        return action;
     },
 };

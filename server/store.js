@@ -7,4 +7,4 @@ const store = applyMiddleware(masterMiddleware)(createStore)(rootReducer);
 //TODO: Remove
 require('./observables/storeStream').default(store);
 
-module.exports = store;
+export default store;

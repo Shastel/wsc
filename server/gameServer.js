@@ -5,13 +5,15 @@ import cli from './cli';
 
 import constants from './constants/messages';
 
-import { getGameStatus } from './game/stat';
 import defaultVerifyClient from './utils/verify_client';
 
-let wss = null;
+import store from './store';
+import SystemSelectors from './selectors/system_selectors';
+
+import isGameMessage from './validators/message_validator';
 
 export function createGameServer({server, verifyClient = defaultVerifyClient}) {
-    wss = new WebSocketServer({
+    const wss = new WebSocketServer({
         server,
         verifyClient,
     });
@@ -21,15 +23,28 @@ export function createGameServer({server, verifyClient = defaultVerifyClient}) {
             cli.log('Master detected');
         } else {
             socket.on('message', function __onGameMessage(message) {
-                if(false) {
-                    socket.send(message);
+                const state = store.getState();
+                const isGameStarted = SystemSelectors.isGameStarted(state);
+                cli.log(`Message recived`);
+                if (isGameStarted) {
+                    //JSON.parse should be replaced
+                    const parsedMessage = JSON.parse(message);
+
+                    if(isGameMessage(parsedMessage.command)) {
+                        //Here game service would process game message
+                    }
+
                 } else {
                     socket.send(JSON.stringify(constants.GAME_NOT_START_MSG));
                 }
             });
 
             socket.on('close', function (){
+                if(!master.isMaster(this)){
+                    store.dispatch({
 
+                    });
+                }
             });
         }
 
@@ -37,5 +52,3 @@ export function createGameServer({server, verifyClient = defaultVerifyClient}) {
 
     return wss;
 }
-
-export wss;

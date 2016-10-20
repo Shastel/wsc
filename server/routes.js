@@ -14,4 +14,4 @@ router.get('/', function(req, res){
     res.sendFile(pathToApp);
 });
 
-module.exports = router;
+export default router;

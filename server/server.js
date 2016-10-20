@@ -19,4 +19,4 @@ app.use('/', routes);
 // catch 404 and forward to error handler
 setErrorHandlers(app);
 
-module.exports = app;
+export default app;

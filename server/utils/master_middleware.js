@@ -1,11 +1,9 @@
-import gwss from '../gameServer';
+//import { wss } from '../gameServer';
 
-console.log(gwss)
+export default () => next => action => {
+    const result = next(action);
 
-export default store => next => action => {
-  const result = next(action);
+    //wss.connections.forEach(c => c.send('wow'));
 
-  wss.connections.forEach(c => c.send('wow'));
-
-  return result
-}
+    return result;
+};

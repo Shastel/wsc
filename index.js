@@ -1,6 +1,6 @@
 import http from 'http';
 import app from './server/server';
-import createGameServer from './server/gameServer';
+import { createGameServer } from './server/gameServer';
 import config from './config';
 import cli from './server/cli';
 

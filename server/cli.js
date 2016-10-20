@@ -1,5 +1,7 @@
 const vorpal = require('vorpal')();
 
+import store from './store';
+
 import SystemActions from './actions/system_actions';
 
 vorpal
