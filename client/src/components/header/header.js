@@ -10,7 +10,13 @@ export default class Header extends PureComponent {
     render() {
         const style = {
             backgroundColor: 'none',
-            boxShadow: 'none'
+            boxShadow: 'none',
+
+        };
+
+        const titleStyle = {
+            fontSize: 28,
+            fontWeight: 'bold',
         };
 
         return (
@@ -18,6 +24,7 @@ export default class Header extends PureComponent {
                 title="Websocket Challenge"
                 iconElementLeft={ <Logo /> }
                 style={style}
+                titleStyle={titleStyle}
             />
         );
     }

@@ -18,13 +18,7 @@ export default class Header extends PureComponent {
 
         return (
             <div className="player">
-                <FontIcon
-                    className="material-icons runner"
-                    color={red500}
-                    style={iconStyle}
-                >
-                    directions_run
-                </FontIcon>
+
                 <span>{name}</span>
             </div>
         );

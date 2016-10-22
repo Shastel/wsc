@@ -7,5 +7,5 @@ export const icons = [
     'directions_walk',
     'directions_run',
     'directions_run',
-    'local_activity'
+    'sentiment_very_satisfied'
 ];
