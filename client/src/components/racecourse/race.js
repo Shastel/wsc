@@ -21,7 +21,6 @@ export default class Race extends PureComponent {
                 <div className="race-header">
                     <FontIcon
                         className="material-icons"
-                        //TODO: COLORS COST
                         style={iconStyle}
                         color={'black'}
                     >

@@ -23,13 +23,21 @@ export default class Time extends PureComponent {
         return (
             <div className="time-table">
                 <div className="timer">
-                    <FontIcon className="material-icons timer-icon" style={iconStyles}
-                              color={'#4dfa60'}>alarm_on</FontIcon>
+                    <FontIcon
+                        className="material-icons timer-icon"
+                        style={iconStyles}
+                        color={Constants.lightGreen}>
+                        alarm_on
+                    </FontIcon>
                     <span>{prettyDate(start)}</span>
                 </div>
                 <div className="timer">
-                    <FontIcon className="material-icons timer-icon" style={iconStyles}
-                              color={'#4DC3FA'}>timelapse</FontIcon>
+                    <FontIcon
+                        className="material-icons timer-icon"
+                        style={iconStyles}
+                        color={Constants.lightBlue}>
+                        timelapse
+                    </FontIcon>
                     <Timer
                         start={start}
                         end={end}
