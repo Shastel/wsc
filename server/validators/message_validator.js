@@ -1,4 +1,4 @@
-import ProtocolMessages from '../constants/protocol_messages';
+import ProtocolMessages from 'server/constants/protocol_messages';
 
 export default function isGameMessage(message) {
     const keys = Object.keys(ProtocolMessages);

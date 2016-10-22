@@ -10,4 +10,4 @@ export default function gameReducer(state = inntitialState, action = {}) {
     default:
         return state;
     }
-};
+}
