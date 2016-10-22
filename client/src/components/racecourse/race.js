@@ -6,35 +6,34 @@ import {PureComponent} from 'react';
 import FontIcon from 'material-ui/FontIcon';
 import Player from '../player/player';
 
+//icons
+import { names, icons } from './names_and_icons';
+
 export default class Race extends PureComponent {
-    getIcon(index) {
-        switch (index) {
-            case 1:
-                return 'one';
-            case 2:
-                return 'two';
-            default:
-                return index;
-        }
-    }
     render() {
         const {index, players} = this.props;
+        const iconStyle = {
+            fontSize: 35
+        };
 
         return (
             <div className={`race`}>
                 <div className="race-header">
                     <FontIcon
                         className="material-icons"
-                        color={grey500}
+                        //TODO: COLORS COST
+                        style={iconStyle}
+                        color={'black'}
                     >
-                        {`looks_${this.getIcon(index + 1)}`}
+                        {icons[index]}
                     </FontIcon>
+                    <div className="race-name">{names[index]}</div>
                 </div>
 
                 <div className="race-players">
                     {
                         players.map((player) => {
-                            return <Player name={player.name} />
+                            return <Player key={player.name} name={player.name} />
                         })
                     }
                 </div>
