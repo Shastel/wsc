@@ -7,7 +7,7 @@ import FontIcon from 'material-ui/FontIcon';
 import Player from 'components/player/player';
 
 //icons
-import { names, icons } from './names_and_icons';
+import {names, icons} from './names_and_icons';
 
 export default class Race extends PureComponent {
     render() {
@@ -31,8 +31,14 @@ export default class Race extends PureComponent {
 
                 <div className="race-players">
                     {
-                        players.map((player) => {
-                            return <Player key={player.name} name={player.name} />
+                        players.map((player, position) => {
+                            return (
+                                <Player
+                                    key={player.name}
+                                    position={index === 3 ? position : null}
+                                    name={player.name}
+                                />
+                            )
                         })
                     }
                 </div>
