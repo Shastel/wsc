@@ -3,7 +3,7 @@ import { PureComponent } from 'react';
 
 //components
 import AppBar from 'material-ui/AppBar';
-import Logo from '../logo/logo';
+import Logo from 'components/logo/logo';
 
 
 export default class Header extends PureComponent {

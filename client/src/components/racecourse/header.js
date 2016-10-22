@@ -2,7 +2,6 @@ import React from 'react';
 
 //components
 import { PureComponent } from 'react';
-import FontIcon from 'material-ui/FontIcon';
 
 
 export default class Header extends PureComponent {

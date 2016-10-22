@@ -5,8 +5,8 @@ import { Component } from 'react';
 
 //components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Header from '../header/header';
-import Racecourse from '../racecourse/racecourse';
+import Header from 'components/header/header';
+import Racecourse from 'components/racecourse/racecourse';
 //stub
 import generatePlayers from './generatePlayers';
 

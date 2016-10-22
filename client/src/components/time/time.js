@@ -8,10 +8,10 @@ import FontIcon from 'material-ui/FontIcon';
 import Timer from './remainingTime';
 
 //constants
-import Constants from '../../constants/constants';
+import Constants from 'constants/constants';
 
 //helpers
-import { prettyDate } from '../../helpers/date';
+import { prettyDate } from 'helpers/date';
 
 export default class Time extends PureComponent {
     render() {

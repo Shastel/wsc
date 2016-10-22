@@ -4,7 +4,7 @@ import {grey500} from 'material-ui/styles/colors';
 //components
 import {PureComponent} from 'react';
 import FontIcon from 'material-ui/FontIcon';
-import Player from '../player/player';
+import Player from 'components/player/player';
 
 //icons
 import { names, icons } from './names_and_icons';
