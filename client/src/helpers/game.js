@@ -1,3 +1,5 @@
+import Constants from 'constants/constants';
+
 export function isWinner(position) {
-    return position < 3;
+    return position < Constants.WINNERS;
 }

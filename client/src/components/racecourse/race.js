@@ -34,7 +34,7 @@ export default class Race extends PureComponent {
                         players.map((player, position) => {
                             return (
                                 <Player
-                                    key={player.name}
+                                    key={player.id}
                                     position={index === 3 ? position : null}
                                     name={player.name}
                                 />
