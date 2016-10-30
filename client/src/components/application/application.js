@@ -11,15 +11,17 @@ import Header from 'components/header/header';
 import Racecourse from 'components/racecourse/racecourse';
 
 //selectors
+import { start, end } from 'selectors/game_selectors';
 import { playersList } from 'selectors/players_selectors';
 
 class Application extends Component {
 
     render() {
-        const { playersList } = this.props;
-        //stub for timers
-        const start = new Date();
-        const end = new Date(start.getTime() + (2*60*60*1000));
+        const {
+            playersList,
+            start,
+            end,
+        } = this.props;
 
         return (
             <MuiThemeProvider>
@@ -36,9 +38,13 @@ class Application extends Component {
     }
 }
 
-const applicationSelector = createSelector([playersList], (playersList) => {
+const applicationSelector = createSelector(
+    [playersList, start, end],
+    (playersList, start, end) => {
     return {
         playersList,
+        start,
+        end,
     }
 });
 
