@@ -11,7 +11,7 @@ import {names, icons} from './names_and_icons';
 
 export default class Race extends PureComponent {
     render() {
-        const {index, players} = this.props;
+        const { index, players } = this.props;
         const iconStyle = {
             fontSize: 35
         };
@@ -34,9 +34,9 @@ export default class Race extends PureComponent {
                         players.map((player, position) => {
                             return (
                                 <Player
-                                    key={player.id}
+                                    key={player.get('id')}
                                     position={index === 3 ? position : null}
-                                    name={player.name}
+                                    name={player.get('name')}
                                 />
                             )
                         })

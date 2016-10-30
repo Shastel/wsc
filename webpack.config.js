@@ -34,14 +34,7 @@ module.exports = {
     },
     devtool: isProduction() ? null : 'source-map',
     resolve: {
-        alias: {
-            'constants': path.join(__dirname, 'client/src/constants/'),
-            'helpers': path.join(__dirname, 'client/src/helpers/'),
-            'components': path.join(__dirname, 'client/src/components/'),
-            'store': path.join(__dirname, 'client/src/store/'),
-            'reducers': path.join(__dirname, 'client/src/reducers/'),
-            'hooks': path.join(__dirname, 'client/src/hooks/'),
-        },
+        root: path.join(__dirname, 'client/src/'),
     },
     module: {
         loaders: [

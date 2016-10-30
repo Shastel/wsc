@@ -3,10 +3,10 @@ import immutable from 'immutable';
 import generatePlayers from './generatePlayers';
 
 const intitialState = immutable.fromJS({
-    players: generatePlayers(),
+    list: generatePlayers(),
 });
 
-export default function gameReducer(state = intitialState, action = {}) {
+export default function playersReducer(state = intitialState, action = {}) {
     switch (action.type) {
         default:
             return state;
