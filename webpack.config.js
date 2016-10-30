@@ -40,6 +40,7 @@ module.exports = {
             'components': path.join(__dirname, 'client/src/components/'),
             'store': path.join(__dirname, 'client/src/store/'),
             'reducers': path.join(__dirname, 'client/src/reducers/'),
+            'hooks': path.join(__dirname, 'client/src/hooks/'),
         },
     },
     module: {
