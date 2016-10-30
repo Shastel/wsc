@@ -38,6 +38,8 @@ module.exports = {
             'constants': path.join(__dirname, 'client/src/constants/'),
             'helpers': path.join(__dirname, 'client/src/helpers/'),
             'components': path.join(__dirname, 'client/src/components/'),
+            'store': path.join(__dirname, 'client/src/store/'),
+            'reducers': path.join(__dirname, 'client/src/reducers/'),
         },
     },
     module: {
