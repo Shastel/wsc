@@ -1,5 +1,7 @@
+import './_animation.styl';
+
 import React from 'react';
-import {grey500} from 'material-ui/styles/colors';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 //components
 import {PureComponent} from 'react';
@@ -16,6 +18,16 @@ export default class Race extends PureComponent {
             fontSize: 35
         };
 
+        const playersMap = players.map((player, position) => {
+            return (
+                <Player
+                    key={player.get('id')}
+                    position={index === 3 ? position : null}
+                    name={player.get('name')}
+                />
+            )
+        });
+
         return (
             <div className={`race`}>
                 <div className="race-header">
@@ -30,17 +42,13 @@ export default class Race extends PureComponent {
                 </div>
 
                 <div className="race-players">
-                    {
-                        players.map((player, position) => {
-                            return (
-                                <Player
-                                    key={player.get('id')}
-                                    position={index === 3 ? position : null}
-                                    name={player.get('name')}
-                                />
-                            )
-                        })
-                    }
+                    <ReactCSSTransitionGroup
+                        transitionName="move"
+                        transitionEnterTimeout={500}
+                        transitionLeaveTimeout={500}
+                    >
+                        { playersMap }
+                    </ReactCSSTransitionGroup>
                 </div>
             </div>
         );

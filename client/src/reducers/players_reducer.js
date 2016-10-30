@@ -10,7 +10,8 @@ export default function playersReducer(state = intitialState, action = {}) {
     switch (action.type) {
         case 'RANDOM_PLZ':
             const number = Math.floor(Math.random() * state.get('list').size);
-            const task = Math.floor(Math.random() * 5);
+            const progress = state.getIn(['list', number, 'progress']);
+            const task = progress === 4 ? progress : progress + 1;
 
             return state.setIn(['list', number, 'progress'], task);
         default:
