@@ -9,7 +9,7 @@ export function isGameCommand(message) {
         }
     }
 
-    return false;
+    return true;
 }
 
 export function isGameMessage(msg){

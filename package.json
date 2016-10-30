@@ -13,7 +13,7 @@
     "start-prod": "npm run build-prod && pm2 start process.json",
     "stop": "pm2 kill",
     "postinstall": "npm dedupe",
-    "babel-node": "babel-node --plugins=transform-es2015-modules-commonjs"
+    "babel-node": "babel-node --inspect --plugins=transform-es2015-modules-commonjs"
   },
   "repository": {
     "type": "git",

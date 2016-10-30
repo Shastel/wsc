@@ -10,10 +10,9 @@ export default class Player{
 
         this.taskSolved = 0;
 
-        this.lastTask = {
+        this.currentTask = {
             name: '',
             data: {},
-            answer: {},
         };
     }
 }
