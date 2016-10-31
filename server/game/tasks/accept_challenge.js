@@ -8,7 +8,8 @@ export function challengeAccepted(message, socket){
         socket.close();
     }
 
-    const player = new Player(message.name);
+    let player = new Player(message.name);
+    player = Object.assign({}, player);
 
     socket.send(JSON.stringify({
         message: Messages.ACCEPTED,

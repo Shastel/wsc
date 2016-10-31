@@ -35,10 +35,10 @@ export function getNextTask(taskName) {
 
 export function solveTask(message, player, socket) {
     const taskData = player.currentTask;
-    const currentTaskInd = tasks.findIndex(({name}) => taskData.name === name);
-    if(typeof message.answer !== 'undefined' && taskData.name) { //anwer can be 0 or false
+    const currentTaskInd = tasks.findIndex(({name}) => taskData.get('name') === name);
+    if(typeof message.answer !== 'undefined' && taskData.get('name')) { //anwer can be 0 or false
         const task = tasks[currentTaskInd];
-        const result = task.solve(taskData.data, message);
+        const result = task.solve(taskData.get('data'), message);
 
         if(result) {
             //here we sould dispatch action with increment of solved task

@@ -9,8 +9,8 @@ export default function gameReducer(state = inntitialState, action = {}) {
     case GameActionTypes.PLAYER_CONNECTED:
         return state.mergeIn(['players'], action.payload);
     case GameActionTypes.PLAYER_SOLVE_TASK:
-    case GameActionTypes.PLAUER_GET_TASK:
-        return state.update('players', chunk => chunk.merge(action.payload));
+    case GameActionTypes.PLAYER_GET_TASK:
+        return state.mergeDeepIn(['players'], action.payload);
     default:
         return state;
     }
