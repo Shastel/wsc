@@ -3,7 +3,7 @@ import './_application.styl';
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { createSelector } from 'reselect';
+import { createStructuredSelector } from 'reselect';
 
 //components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -38,14 +38,10 @@ class Application extends Component {
     }
 }
 
-const applicationSelector = createSelector(
-    [playersList, start, end],
-    (playersList, start, end) => {
-    return {
-        playersList,
-        start,
-        end,
-    }
+const applicationSelector = createStructuredSelector({
+    playersList,
+    start,
+    end,
 });
 
 export default connect(applicationSelector)(Application);

@@ -42,6 +42,7 @@ export default class Race extends PureComponent {
                 </div>
 
                 <div className="race-players">
+                    {/*TODO: refactor animations*/}
                     <ReactCSSTransitionGroup
                         transitionName="move"
                         transitionEnterTimeout={500}
