@@ -1,10 +1,8 @@
 const TASK_NAME = '1';
-const signs = ['+', '-', '*', '/'];
+const signs = ['+', '-', '*'];
 
 function solve({ values, sign }, answer) {
-    const summ = values.reduce((p,c) => {
-        eval(`${p}${sign}${c}`);
-    });
+    const summ = values.reduce((p,c) => eval(`${p}${sign}${+c}`), 0);
 
     return summ === answer;
 }
@@ -14,7 +12,7 @@ function start(){
     const arr = Array.from({length: 4}, ()=>Math.floor(Math.random()));
 
     return {
-        task_name: TASK_NAME,
+        name: TASK_NAME,
         task: {
             sign,
             values: arr,

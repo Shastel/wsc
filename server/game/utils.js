@@ -27,18 +27,19 @@ export function getNextTask(taskName) {
     const currentTaskInd = tasks.findIndex(({name}) => name === taskName);
 
     if (currentTaskInd !== -1) {
-        return tasks[currentTaskInd + 1].name || ProtocolMessages.WIN;
+        return (tasks[currentTaskInd + 1] && tasks[currentTaskInd + 1].name) || ProtocolMessages.WIN;
     }
 
     return ProtocolMessages.WIN;
 }
 
 export function solveTask(message, player, socket) {
+    player = player.toJS();
     const taskData = player.currentTask;
-    const currentTaskInd = tasks.findIndex(({name}) => taskData.get('name') === name);
-    if(typeof message.answer !== 'undefined' && taskData.get('name')) { //anwer can be 0 or false
+    const currentTaskInd = tasks.findIndex(({name}) => taskData.name === name);
+    if(typeof message.answer !== 'undefined' && taskData.name) { //anwer can be 0 or false
         const task = tasks[currentTaskInd];
-        const result = task.solve(taskData.get('data'), message);
+        const result = task.solve(taskData.task, message.answer);
 
         if(result) {
             //here we sould dispatch action with increment of solved task
@@ -84,10 +85,10 @@ export function solveTask(message, player, socket) {
 }
 
 export function chooseAndPlay(message, player, socket){
-    switch (message.command) {
-    case ProtocolMessages.WIN:
+    player = player.toJS();
+    if(ProtocolMessages.WIN === message.command && player.taskSolved === 1) { //TASK length
         return winTask(player, socket);
-    default:
+    } else {
         return solveTask(...arguments);
     }
 }
