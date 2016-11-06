@@ -2,9 +2,11 @@ import { createPlayer } from 'server/models/player';
 import { connectNewPlayer } from 'server/actions/game_actions';
 import Messages from 'server/constants/messages';
 import { getFirstTask } from 'server/game/utils';
+import { WITHOUT_NAME } from 'server/constants/messages';
 
 export function challengeAccepted(message, socket){
     if(!message.name) {
+        socket.send(WITHOUT_NAME);
         socket.close();
     }
 
