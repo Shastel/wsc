@@ -15,7 +15,7 @@ function start(){
     const randomBits = values[Math.floor(Math.random() * values.length)];
     const array = new UNIT_BITS_ARRAYS[randomBits](buffer);
 
-    for (let i = 0; i < buffer.byteLength; i++) {
+    for (let i = 0; i < buffer.byteLength / (randomBits / 8); i++) {
         array[i] = Math.floor(Math.random() * Math.pow(2, randomBits));
     }
 
