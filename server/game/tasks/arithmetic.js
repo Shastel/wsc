@@ -1,5 +1,5 @@
-const TASK_NAME = '1';
-const signs = ['+', '-', '*'];
+const TASK_NAME = 'arithmetic';
+const signs = ['+', '-', '*', '/'];
 
 function solve({ values, sign }, answer) {
     const summ = values.reduce((p,c) => eval(`${p}${sign}${+c}`), 0);
@@ -9,7 +9,7 @@ function solve({ values, sign }, answer) {
 
 function start(){
     const sign = signs[Math.floor(Math.random() * signs.length)];
-    const arr = Array.from({length: 4}, ()=>Math.floor(Math.random()));
+    const arr = Array.from({ length: 4 }, () => Math.floor(Math.random()));
 
     return {
         name: TASK_NAME,

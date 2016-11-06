@@ -10,9 +10,10 @@ import {
   playerSolveTask
 } from 'server/actions/game_actions';
 
-import first from 'server/game/tasks/1';
+import arithmetic from 'server/game/tasks/arithmetic';
+import bin_arithmetic from 'server/game/tasks/binary_arithmetic';
 
-const tasks = [first];
+const tasks = [arithmetic, bin_arithmetic];
 
 
 
@@ -42,7 +43,7 @@ export function solveTask(message, player, socket) {
         const result = task.solve(taskData.task, message.answer);
 
         if(result) {
-            //here we sould dispatch action with increment of solved task
+            //here we should dispatch action with increment of solved task
             //and set current task data as empty object
             playerSolveTask(player);
             const nextTask = getNextTask(task.name);
@@ -78,7 +79,19 @@ export function solveTask(message, player, socket) {
             playerGetTask(player, taskData);
 
             process.nextTick(function(){
-                socket.send(JSON.stringify(taskData));
+                // if the task has a binary data,
+                // send it in the second message
+                if (taskData.binary) {
+                    socket.send(JSON.stringify({
+                        name: taskData.name,
+                        task: {
+                            bits: taskData.task.bits
+                        },
+                    }));
+                    socket.send(taskData.task.binaryData, { binary: true });
+                } else {
+                    socket.send(JSON.stringify(taskData));
+                }
             });
         }
     }
@@ -86,7 +99,7 @@ export function solveTask(message, player, socket) {
 
 export function chooseAndPlay(message, player, socket){
     player = player.toJS();
-    if(ProtocolMessages.WIN === message.command && player.taskSolved === 1) { //TASK length
+    if (ProtocolMessages.WIN === message.command && player.taskSolved === tasks.length) { //TASK length
         return winTask(player, socket);
     } else {
         return solveTask(...arguments);
