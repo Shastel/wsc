@@ -1,7 +1,7 @@
 const TASK_NAME = 'arithmetic';
 const MAX = 255;
 const MIN = 1;
-const signs = ['+', '-', '*', '/'];
+const signs = ['+', '-', '*'];
 
 function solve({ values, sign }, answer) {
     const result = values.reduce((previous, current) => eval(`${previous}${sign}${current}`));
