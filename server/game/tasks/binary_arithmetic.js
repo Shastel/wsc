@@ -23,7 +23,6 @@ function start() {
         name: TASK_NAME,
         task: {
             bits: randomBits,
-            binaryData: array.buffer,
         },
 
         binaryData: array.buffer,
