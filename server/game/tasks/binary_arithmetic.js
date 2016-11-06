@@ -9,7 +9,7 @@ function solve({ bits }, answer, binaryData) {
     return summ === answer || answer === 0;
 }
 
-function start(){
+function start() {
     const buffer = new ArrayBuffer(16);
     const values = [8, 16];
     const randomBits = values[Math.floor(Math.random() * values.length)];

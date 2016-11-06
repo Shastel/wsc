@@ -69,7 +69,7 @@ export function solveTask(message, player, socket) {
         const newTaskInd = tasks.findIndex(({name}) => name === message.command);
         if (newTaskInd !== player.taskSolved){
             //Player try to get task to early
-            process.nextTick(function(){
+            process.nextTick(function() {
                 socket.send('To early cowboy');
             });
         } else {
@@ -79,18 +79,13 @@ export function solveTask(message, player, socket) {
             playerGetTask(player, taskData);
 
             process.nextTick(function(){
-                // if the task has a binary data,
-                // send it in the second message
-                if (taskData.binaryData) {
-                    const { name, task, binaryData } = taskData;
-                    socket.send(JSON.stringify({
-                        name,
-                        task,
-                    }));
+                socket.send(JSON.stringify({
+                    name: taskData.name,
+                    task: taskData.task,
+                }));
 
-                    socket.send(binaryData);
-                } else {
-                    socket.send(JSON.stringify(taskData));
+                if (taskData.binaryData) {
+                    socket.send(taskData.binaryData);
                 }
             });
         }
