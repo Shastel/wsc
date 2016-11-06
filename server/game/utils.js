@@ -40,7 +40,7 @@ export function solveTask(message, player, socket) {
     const currentTaskInd = tasks.findIndex(({name}) => taskData.name === name);
     if(typeof message.answer !== 'undefined' && taskData.name) { //anwer can be 0 or false
         const task = tasks[currentTaskInd];
-        const result = task.solve(taskData.task, message.answer);
+        const result = task.solve(taskData.task, message.answer, taskData.binaryData);
 
         if(result) {
             //here we should dispatch action with increment of solved task
@@ -81,14 +81,14 @@ export function solveTask(message, player, socket) {
             process.nextTick(function(){
                 // if the task has a binary data,
                 // send it in the second message
-                if (taskData.binary) {
+                if (taskData.binaryData) {
+                    const { name, task, binaryData } = taskData;
                     socket.send(JSON.stringify({
-                        name: taskData.name,
-                        task: {
-                            bits: taskData.task.bits
-                        },
+                        name,
+                        task,
                     }));
-                    socket.send(taskData.task.binaryData, { binary: true });
+
+                    socket.send(binaryData);
                 } else {
                     socket.send(JSON.stringify(taskData));
                 }

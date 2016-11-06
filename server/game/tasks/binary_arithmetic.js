@@ -1,7 +1,7 @@
 const TASK_NAME = 'binary_arithmetic';
 const UNIT_BITS_ARRAYS = {8: Uint8Array, 16: Uint16Array};
 
-function solve({ binaryData, bits }, answer) {
+function solve({ bits }, answer, binaryData) {
     const array = new UNIT_BITS_ARRAYS[bits](binaryData);
     const summ = array.reduce((a, b) => a + b, 0);
 
@@ -26,7 +26,7 @@ function start(){
             binaryData: array.buffer,
         },
 
-        binary: true,
+        binaryData: array.buffer,
     };
 }
 
