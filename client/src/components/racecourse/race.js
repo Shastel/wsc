@@ -12,7 +12,7 @@ import Player from 'components/player/player';
 import { names, icons } from './names_and_icons';
 
 //constants
-import Constants from  'constants';
+import Constants from 'constants';
 
 export default class Race extends PureComponent {
     render() {
@@ -25,7 +25,7 @@ export default class Race extends PureComponent {
             return (
                 <Player
                     key={player.get('id')}
-                    position={index === 3 ? position : null}
+                    position={index === Constants.LAST_RACE ? position : null}
                     name={player.get('name')}
                 />
             )
