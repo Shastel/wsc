@@ -17,15 +17,17 @@ import Constants from 'constants';
 export default class Race extends PureComponent {
     render() {
         const { index, players } = this.props;
+        let idx = 0;
         const iconStyle = {
             fontSize: 35
         };
 
-        const playersMap = players.map((player, position) => {
+        const playersMap = players.map((player, id) => {
+            idx++;
             return (
                 <Player
-                    key={player.get('id')}
-                    position={index === Constants.LAST_RACE ? position : null}
+                    key={id}
+                    position={index === Constants.LAST_RACE ? idx : null}
                     name={player.get('name')}
                 />
             )
