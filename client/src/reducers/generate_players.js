@@ -56,6 +56,7 @@ export default function generate() {
         playersMap[playerId] = {};
         playersMap[playerId].progress = Math.floor(Math.random() * 4);
         playersMap[playerId].name = players[i];
+        playersMap[playerId].id = playerId;
         playersMap[playerId].progressTime = Date.now() + i;
     }
     return playersMap;
