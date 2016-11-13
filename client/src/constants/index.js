@@ -2,6 +2,8 @@ export default {
     TIMER_ICONS_SIZE: 30,
     TASKS_LENGTH: 4,
     WINNERS: 3,
+    ANIMATION_DURATION: 500,
+    ANIMATION_NAME: 'move',
     darkNight: '#1F2739',
     night: '#2C3446',
     whiteNight: '#323C50',

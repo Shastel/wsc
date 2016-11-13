@@ -4,12 +4,15 @@ import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 //components
-import {PureComponent} from 'react';
+import { PureComponent } from 'react';
 import FontIcon from 'material-ui/FontIcon';
 import Player from 'components/player/player';
 
 //icons
-import {names, icons} from './names_and_icons';
+import { names, icons } from './names_and_icons';
+
+//constants
+import Constants from  'constants';
 
 export default class Race extends PureComponent {
     render() {
@@ -42,11 +45,10 @@ export default class Race extends PureComponent {
                 </div>
 
                 <div className="race-players">
-                    {/*TODO: refactor animations*/}
                     <ReactCSSTransitionGroup
-                        transitionName="move"
-                        transitionEnterTimeout={500}
-                        transitionLeaveTimeout={500}
+                        transitionName={Constants.ANIMATION_NAME}
+                        transitionEnterTimeout={Constants.ANIMATION_DURATION}
+                        transitionLeaveTimeout={Constants.ANIMATION_DURATION}
                     >
                         { playersMap }
                     </ReactCSSTransitionGroup>
