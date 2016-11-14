@@ -9,7 +9,7 @@ app.set('port', port);
 
 const server = http.createServer(app);
 
-server.listen(port);
+server.listen(port, '0.0.0.0');
 server.on('error', function __onServerError(err){
     cli.log('*********************************');
     cli.log('**************PANIC**************');
