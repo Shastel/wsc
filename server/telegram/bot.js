@@ -2,7 +2,7 @@ import TeleBot from 'telebot';
 import controller from 'server/telegram/controller';
 
 const bot = new TeleBot({
-    token: '', // Required. Telegram Bot API token.
+    token: '253414327:AAFjAbo9cfpLQ5xPQ_8MRAiUovvooAMdReI', // Required. Telegram Bot API token.
     pooling: { // Optional. Use pooling.
         interval: 1000, // Optional. How often check updates (in ms).
         timeout: 0, // Optional. Update pulling timeout (0 - short polling).
@@ -14,3 +14,4 @@ const bot = new TeleBot({
 bot.connect();
 
 bot.on('/stat', (msg) => controller.stat(bot, msg));
+bot.on('/start', (msg) => controller.start(bot, msg));
