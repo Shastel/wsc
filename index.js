@@ -1,10 +1,9 @@
 import http from 'http';
 import app from './server/server';
 import { initializaeServers } from './server/web_socket/';
-import config from './config';
 import cli from './server/cli';
 
-const port = Number.isNaN(config.get('PORT')) ? config.get('PORT') : 3000;
+const port = Number.isNaN(process.env.PORT) ? process.env.PORT : 3000;
 
 app.set('port', port);
 
