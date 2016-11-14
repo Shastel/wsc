@@ -22,4 +22,5 @@ server.on('listening', function __onListening(){
     cli.log(`Server ready on: ${port}`);
 
     initializaeServers({server});
+    require('server/telegram/bot');
 });
