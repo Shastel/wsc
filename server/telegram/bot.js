@@ -2,7 +2,7 @@ import TeleBot from 'telebot';
 import controller from 'server/telegram/controller';
 
 const bot = new TeleBot({
-    token: '253414327:AAFjAbo9cfpLQ5xPQ_8MRAiUovvooAMdReI', // Required. Telegram Bot API token.
+    token: '253414327:AAGwmQrhj4jSczm3erdWAUBWtAUyBDqn1yw', // Required. Telegram Bot API token.
     pooling: { // Optional. Use pooling.
         interval: 1000, // Optional. How often check updates (in ms).
         timeout: 0, // Optional. Update pulling timeout (0 - short polling).

@@ -3,13 +3,13 @@ import app from './server/server';
 import { initializaeServers } from './server/web_socket/';
 import cli from './server/cli';
 
-const port = Number.isNaN(process.env.PORT) ? process.env.PORT : 3000;
+const port =  process.env.PORT || 3000;
 
 app.set('port', port);
 
 const server = http.createServer(app);
 
-server.listen(port, '0.0.0.0');
+server.listen(port);
 server.on('error', function __onServerError(err){
     cli.log('*********************************');
     cli.log('**************PANIC**************');
