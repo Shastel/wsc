@@ -1,5 +1,5 @@
 /* eslint-disable no-console*/
-//Use console instead of CLI here to awoid circular dependencies
+//Use console instead of CLI here to avoid circular dependencies
 import nconf from 'nconf';
 
 const config = nconf.argv().env();
