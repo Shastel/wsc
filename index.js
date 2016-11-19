@@ -5,11 +5,12 @@ import { initializebot } from 'server/telegram';
 import config from 'config';
 import cli from './server/cli';
 
-app.set('port', config.get('PORT'));
+const port = config.get('PORT');
+app.set('port', port);
 
 const server = http.createServer(app);
 
-server.listen(config.get('PORT'));
+server.listen(port);
 server.on('error', function __onServerError(err){
     cli.log('*********************************');
     cli.log('**************PANIC**************');
@@ -17,8 +18,8 @@ server.on('error', function __onServerError(err){
     cli.log('*********************************');
 });
 
-server.on('listening', function __onListening(){
-    cli.log(`Server ready on: ${config.get('PORT')}`);
+server.on('listening', function __onListening() {
+    cli.log(`Server ready on: ${port}`);
 
     initializaeServers({server});
     initializebot();
