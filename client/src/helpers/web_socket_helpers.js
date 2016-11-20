@@ -5,6 +5,6 @@ function getProtocol(protocol) {
 }
 
 export function getUrl(location) {
-    const protocol = getProtocol(location.protocl);
+    const protocol = getProtocol(location.protocol);
     return `${protocol}${location.host}${PATH}`;
 }
