@@ -1,6 +1,6 @@
 export function createRemoteDispatchMiddleware(getRemotes, actions) {
     return () => next => action => {
-        const nextStore = next(action);
+        const result = next(action);
         const connections = getRemotes();
 
         if(actions[action.type] !== undefined){
@@ -17,6 +17,6 @@ export function createRemoteDispatchMiddleware(getRemotes, actions) {
             });
         }
 
-        return nextStore;
+        return result;
     };
 }
