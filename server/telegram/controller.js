@@ -1,5 +1,5 @@
 import cli from 'server/cli';
-import { startGame } from 'server/actions/system_actions';
+import { startGame, finishGame } from 'server/actions/system_actions';
 import store from 'server/store';
 import * as SystemSelectors from 'shared/selectors/system_selectors';
 import { players } from 'server/selectors/players_selectors';
@@ -30,6 +30,17 @@ export default {
                 return bot.sendMessage(msg.from.id, `Thx @${msg.from.username}, you successfully start the game`);
             }
             bot.sendMessage(msg.from.id, `Sorry @${msg.from.username}, game started before your command`);
+        } else {
+            bot.sendMessage(msg.from.id, 'perm denied');
+            bot.leaveChat(msg.chat.id);
+        }
+    },
+    finish(bot, msg) {
+        cli.log(`/finish recived from ${msg.from.username}`);
+        if(isAvailToControllBot(msg.from.username)) {
+            cli.log(`Game finished. Source of command telegram bot. Execute by @${msg.from.username}`);
+            finishGame();
+            return bot.sendMessage(msg.from.id, `Thx @${msg.from.username}, you successfully finish the game`);
         } else {
             bot.sendMessage(msg.from.id, 'perm denied');
             bot.leaveChat(msg.chat.id);
