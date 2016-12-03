@@ -16,9 +16,6 @@ config.defaults({
     PORT: 3000,
     duration: 2 * 60 * 60 * 1000, //game duration
     mongouri,
-    mongourl: 'ds021036.mlab.com:21036/wsc',
-    mongouser: 'prod',
-    mongopass: 'prod',
 });
 
 export default config;
