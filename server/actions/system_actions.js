@@ -8,7 +8,7 @@ export function startGame () {
     const state = store.getState();
     const isGameStarted = SystemSelectors.isGameStarted(state);
 
-    if(!isGameStarted){
+    if(!isGameStarted) {
         const start = Date.now();
         store.dispatch({
             type: ActionTypes.START_GAME,
@@ -23,6 +23,18 @@ export function startGame () {
     return false;
 }
 
+export function finishGame () {
+    const state = store.getState();
+    const isGameStarted = SystemSelectors.isGameStarted(state);
+
+    if(isGameStarted) {
+        store.dispatch({
+            type: ActionTypes.FINISH_GAME,
+        });
+    }
+}
+
 export default {
     startGame,
+    finishGame,
 };
