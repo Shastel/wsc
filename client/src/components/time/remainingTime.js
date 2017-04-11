@@ -24,6 +24,10 @@ export default class RemainingTime extends PureComponent {
 
     start() {
         this.interval = setInterval(() => {
+            if (this.props.end <= Date.now()) {
+                return clearInterval(this.interval);
+            }
+
             this.setState({
                 timer: this.props.end - new Date()
             });
