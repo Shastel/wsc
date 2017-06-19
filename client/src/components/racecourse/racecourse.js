@@ -12,10 +12,9 @@ import Constants from 'consts';
 export default class Racecourse extends PureComponent {
     races (players, count) {
         const races = [];
-        const sortedPlayers = players.sort((a, b) => a.get('end') - b.get('end'));
 
         for (let i = 0; i < count; i++) {
-            const racePlayers = sortedPlayers.filter(player => player.get('taskSolved') === i);
+            const racePlayers = players.filter(player => player.get('taskSolved') === i);
             races.push(<Race key={i} index={i} players={racePlayers}/>);
         }
 

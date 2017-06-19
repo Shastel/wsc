@@ -12,13 +12,13 @@ import Racecourse from 'components/racecourse/racecourse';
 import Spinner from  'components/spinner/spinner';
 //selectors
 import { end, isGameStarted } from 'shared/selectors/system_selectors';
-import { playersList } from 'selectors/players_selectors';
+import { players } from 'selectors/players_selectors';
 
 class Application extends Component {
     render() {
         const {
             isGameStarted,
-            playersList,
+            players,
             end,
         } = this.props;
 
@@ -28,7 +28,7 @@ class Application extends Component {
                     <Header />
                     {
                         isGameStarted
-                            ? <Racecourse end={end} players={playersList}/>
+                            ? <Racecourse end={end} players={players}/>
                             : <Spinner>Please wait. Game will start shortly.</Spinner>
                     }
                 </div>
@@ -39,13 +39,13 @@ class Application extends Component {
 
 const applicationSelector = createStructuredSelector({
     isGameStarted,
-    playersList,
+    players,
     end,
 });
 
 Application.propTypes = {
     isGameStarted: React.PropTypes.any,
-    playersList: React.PropTypes.instanceOf(Map),
+    players: React.PropTypes.instanceOf(Map),
     end: React.PropTypes.any,
 };
 
