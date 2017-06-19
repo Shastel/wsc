@@ -7,7 +7,7 @@ import Time from 'components/time/time';
 import Race from './race';
 import Header from './header';
 //constants
-import Constants from '../../constants';
+import Constants from 'consts';
 
 export default class Racecourse extends PureComponent {
     races (players, count) {

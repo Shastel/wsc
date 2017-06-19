@@ -6,7 +6,7 @@ import { PureComponent } from 'react';
 import FontIcon from 'material-ui/FontIcon';
 import Timer from './remainingTime';
 //constants
-import Constants from 'constants';
+import Constants from 'consts';
 
 export default class Time extends PureComponent {
     render () {
