@@ -1,11 +1,11 @@
 import immutable from 'immutable';
 //stub
-import generatePlayers from './generate_players';
+//import generatePlayers from './generate_players';
 import SystemActionTypes from 'shared/action_types/baseViewActionTypes';
 import GameActionTypes from 'shared/action_types/game_action_types';
 
 const intitialState = immutable.fromJS({
-    list: generatePlayers(),
+    list: immutable.Map(),//generatePlayers(),
 });
 
 export default function playersReducer(state = intitialState, action = {}) {

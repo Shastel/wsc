@@ -20,7 +20,7 @@ server.on('error', function __onServerError(err){
 
 server.on('listening', function __onListening() {
     cli.log(`Server ready on: ${port}`);
-    //mongoose.connect(config.get('mongouri'));
+    mongoose.connect(config.get('mongouri'));
     mongoose.Promise = global.Promise;
     initializaeServers({server});
     initializebot();
