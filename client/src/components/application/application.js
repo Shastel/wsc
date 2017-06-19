@@ -14,8 +14,6 @@ import Spinner from  'components/spinner/spinner';
 import { end, isGameStarted } from 'shared/selectors/system_selectors';
 import { playersList } from 'selectors/players_selectors';
 
-const PleaseWait = <Spinner>Please wait. Game will start shortly.</Spinner>;
-
 class Application extends Component {
     render() {
         const {
@@ -31,7 +29,7 @@ class Application extends Component {
                     {
                         isGameStarted
                             ? <Racecourse end={end} players={playersList}/>
-                            : <PleaseWait/>
+                            : <Spinner>Please wait. Game will start shortly.</Spinner>
                     }
                 </div>
             </MuiThemeProvider>

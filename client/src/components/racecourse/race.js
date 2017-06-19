@@ -9,7 +9,7 @@ import Player from 'components/player/player';
 //icons
 import { names, icons } from './names_and_icons';
 //constants
-import Constants from 'constants';
+import Constants from '../../constants';
 
 export default class Race extends PureComponent {
     render () {
